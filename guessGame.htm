@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>GuessGame</title>
+  </head>
+  <body>
+    <script src="jquery-1.8.1.js"></script>
+    <script>
+      
+
+    var userInput = -1;
+	randomNum = Math.floor(Math.random( ) * 100 + 1);
+	
+	while (userInput != 0) {
+		userInput = prompt ("Please type in a number between 1 and 100. Type in 0 to leave");
+		
+		if (userInput != 0) {
+			if (userInput < 0 || userInput > 100) {
+       			alert ("Guess out of bounds. Guess again!");
+			} else if (userInput > randomNum) {
+				alert ("Guess lower!");
+			} else if (userInput < randomNum) {
+				alert ("Guess higher!");
+			} else {
+				alert ("You guessed the correct number!");
+				userInput = 0;
+			}	
+		}
+    }		
+
+    </script>
+  </body>
+</html>
