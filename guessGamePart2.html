@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<script type="text/javascript"> 
+    var totalCnt = 0;
+    var randomNum = undefined;
+ 
+    function randomGen() {
+        if (typeof randomNum == 'undefined') {
+            randomNum = Math.floor(Math.random( ) * 100 + 1);
+        }
+    }
+       
+    function incrementCount() {
+        totalCnt = totalCnt + 1;
+        var count = document.getElementById("totalCnt");
+        count.innerHTML = totalCnt; 
+    }
+     
+    function guessCheck() {
+    randomGen();
+    alert (randomNum);
+    var msg; 
+    var userInput = parseInt(document.getElementById("userInput").value); 
+        if (userInput != 0) {   
+            if (userInput > randomNum) {
+                msg = "Guess lower!";
+            } else if (userInput < randomNum) {
+                msg = "Guess higher!";
+            } else if (userInput == randomNum) {
+                msg = "You guessed the correct number!";
+                userInput = 0;
+            } 
+         }  
+            incrementCount();
+            var m = document.getElementById( 'msg' );
+            m.innerHTML = msg;
+    }
+</script>
+<p>Please guess a number between 0 and 100 (inclusive):</p>
+
+<form>
+<input type="text" id="userInput"/>
+<button type="button" onclick="guessCheck()">Click me</button>
+<br />
+</form>
+
+<h3> Total Guesses = <b id="totalCnt"></b> </h3>
+<h3> Your guess in = <b id="msg"></b> </h3>
+
+</body>
+</html>
